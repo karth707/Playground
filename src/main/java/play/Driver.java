@@ -1,6 +1,6 @@
-package basics;
+package play;
 
-public class PlayDriver {
+public class Driver {
 
     public static void main(String[] args) {
 

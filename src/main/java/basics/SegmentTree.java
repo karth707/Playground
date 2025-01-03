@@ -31,7 +31,7 @@ public class SegmentTree<T> {
             int leftChildIndex = (2 * nodeIndex) + 1;
             int rightChildIndex = (2 * nodeIndex) + 2;
 
-            // Split array into two halves for left and right children
+            // Split current range of the array into two halves for left and right children
             buildTree(elements, leftChildIndex, start, mid);
             buildTree(elements, rightChildIndex, mid + 1, end);
 

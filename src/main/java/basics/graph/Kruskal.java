@@ -1,6 +1,6 @@
 package basics.graph;
 
-import basics.DisjointSet;
+import basics.UnionFind;
 
 import java.util.*;
 
@@ -8,12 +8,12 @@ public class Kruskal<T> {
 
     private final List<GraphEdge<T>> edges;
     private final Comparator<T> weightComparator;
-    private final DisjointSet<GraphNode<T>> unionFind;
+    private final UnionFind<GraphNode<T>> unionFind;
 
     public Kruskal(List<GraphEdge<T>> edges, Comparator<T> weightComparator) {
         this.edges = edges;
         this.weightComparator = weightComparator;
-        this.unionFind = new DisjointSet<>();
+        this.unionFind = new UnionFind<>();
     }
 
     public Set<GraphEdge<T>> buildMST() {

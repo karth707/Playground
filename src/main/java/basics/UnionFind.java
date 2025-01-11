@@ -6,12 +6,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class DisjointSet<T> {
+public class UnionFind<T> {
 
     private final Map<T, Node<T>> nodeMap;
     private final Set<Node<T>> representatives;
 
-    public DisjointSet() {
+    public UnionFind() {
         this.nodeMap = new HashMap<>();
         this.representatives = new HashSet<>();
     }
@@ -109,16 +109,16 @@ public class DisjointSet<T> {
     }
 
     public static void main(String[] args) {
-        DisjointSet<Integer> disjointSet = new DisjointSet<>();
+        UnionFind<Integer> unionFind = new UnionFind<>();
         for (int data=1; data<8; data++) {
-            disjointSet.makeSet(data);
+            unionFind.makeSet(data);
         }
-        disjointSet.union(1, 5);
-        disjointSet.union(4, 6);
-        disjointSet.union(5, 7);
-        disjointSet.union(2, 3);
+        unionFind.union(1, 5);
+        unionFind.union(4, 6);
+        unionFind.union(5, 7);
+        unionFind.union(2, 3);
 
-        System.out.println("Total Sets: " + disjointSet.getSize());
-        System.out.println("Representatives: " + disjointSet.getRepresentatives());
+        System.out.println("Total Sets: " + unionFind.getSize());
+        System.out.println("Representatives: " + unionFind.getRepresentatives());
     }
 }

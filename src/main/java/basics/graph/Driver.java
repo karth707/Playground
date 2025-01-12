@@ -9,6 +9,9 @@ public class Driver {
     public static void main(String[] args) {
 
         /*
+         * Directed Graph:
+         * Dir: 1->2; 3->6; 3->2; 4->3; 4->2; 4->1; 5->4; 5->1; 6->2
+         *
          *      {4} - 5 - {3}
          *     / | \       | \
          *   9   |  \      |  8
@@ -40,7 +43,12 @@ public class Driver {
         );
 
         Kruskal<Integer> kruskal = new Kruskal<>(edges, Comparator.comparingInt(a -> a));
+        System.out.println("Running Kruskal for MST:");
         printMST(kruskal.buildMST());
+
+        Prims<Integer> prims = new Prims<>(edges);
+        System.out.println("Running Prims for MST:");
+        printMST(prims.buildMST());
     }
 
     private static void printMST(Set<GraphEdge<Integer>> mst) {

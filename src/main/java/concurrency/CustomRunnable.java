@@ -1,6 +1,10 @@
 package concurrency;
 
-public class MyRunnable implements Runnable {
+/**
+ * Implement the Runnable instead of extending the Thread class
+ * - Advantage is mainly object overhead and no multiple inheritance issues
+ */
+public class CustomRunnable implements Runnable {
 
     @Override
     public void run() {
@@ -9,7 +13,7 @@ public class MyRunnable implements Runnable {
 
     public static void main(String[] args) {
 
-        Thread myThread = new Thread(new MyRunnable());
+        Thread customThread = new Thread(new CustomRunnable());
 
         Thread lambdaThread = new Thread(() -> {
             try {
@@ -33,7 +37,7 @@ public class MyRunnable implements Runnable {
             }
         });
 
-        myThread.start();
+        customThread.start();
         lambdaThread.start();
         demonThread.setDaemon(true);
         demonThread.start();

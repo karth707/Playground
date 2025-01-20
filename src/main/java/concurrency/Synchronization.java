@@ -27,14 +27,14 @@ public class Synchronization {
     }
 
     public void deposit(double amount) {
-        doWork(2000);   // non-critical work
+        Util.doWork(2000);   // non-critical work
 
         synchronized (this) {
             String thread = Thread.currentThread().getName();
             System.out.println(thread + " attempting to deposit: " + amount + ", current balance: " + balance);
 
             double newBalance = balance + amount;
-            doWork(1000);   // critical work
+            Util.doWork(1000);   // critical work
             balance = newBalance;
 
             System.out.println(thread + " seeing new balance: " + balance);
@@ -42,14 +42,14 @@ public class Synchronization {
     }
 
     public void withdraw(double amount) {
-        doWork(2000);   // non-critical work
+        Util.doWork(2000);   // non-critical work
 
         synchronized(this) {
             String thread = Thread.currentThread().getName();
             System.out.println(thread + " attempting to withdraw: " + amount + ", current balance: " + balance);
             if (balance >= amount) {
                 double newBalance = balance - amount;
-                doWork(1000);
+                Util.doWork(1000);
                 balance = newBalance;
             }
             System.out.println(thread + " seeing new balance: " + balance);
@@ -58,15 +58,6 @@ public class Synchronization {
 
     public double getBalance() {
         return balance;
-    }
-
-    // processing work simulation
-    private void doWork(long millis) {
-        try {
-            Thread.sleep(millis);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     public static void main(String[] args) {

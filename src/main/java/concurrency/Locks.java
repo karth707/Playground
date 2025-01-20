@@ -28,7 +28,7 @@ public class Locks {
         reentrantWriteLock.lock();
         String thread = Thread.currentThread().getName();
         try {
-            doWork(1000);
+            Util.doWork(1000);
             shared += value;
             System.out.println(thread + " updated shared, shared: " + shared);
         } finally {
@@ -40,20 +40,11 @@ public class Locks {
         reentrantReadLock.lock();
         String thread = Thread.currentThread().getName();
         try {
-            doWork(500);
+            Util.doWork(500);
             System.out.println(thread + " reading shared value, shared: " + shared);
             return shared;
         } finally {
             reentrantReadLock.unlock();
-        }
-    }
-
-    // processing work simulation
-    private void doWork(long millis) {
-        try {
-            Thread.sleep(millis);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
         }
     }
 

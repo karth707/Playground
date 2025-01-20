@@ -10,6 +10,12 @@ package concurrency;
  *   - Uses the implicit lock of the class, shared across all sync methods in the class
  *     - static method has one lock for all instances otherwise each instance has its implicit lock
  *  - Below making the methods synchronized will make the non-critical work also blocking increasing runtime
+ *
+ *  - Making a shared resource volatile vs using synchronization/locks
+ *    - If we make the shared resource volatile, all threads will immediately see the new val
+ *    - Can be used if the operations on the variable are atomic (e.g., reading or writing a boolean or int).
+ *    - If we just need the threads to see the new val then it's ok
+ *    - Use sync/locks for compound actions (++, --, updates, etc.)
  */
 public class Synchronization {
 

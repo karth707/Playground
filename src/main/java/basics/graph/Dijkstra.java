@@ -1,4 +1,3 @@
 package basics.graph;
 
-public class Dijkstra {
-}
+public class Dijkstra {}

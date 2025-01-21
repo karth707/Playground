@@ -32,8 +32,6 @@ import java.util.concurrent.Executors;
  */
 public class CustomFileReader {
 
-
-
     public void readFile(String filePath) {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String thread = Thread.currentThread().getName();
@@ -46,7 +44,6 @@ public class CustomFileReader {
             throw new RuntimeException("failed reading file", e);
         }
     }
-
 
     public static void main(String[] args) {
 

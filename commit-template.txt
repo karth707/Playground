@@ -1,0 +1,7 @@
+[SCOPE]: <commit title>
+
+**Description**
+<short summary of the changes>
+
+**Testing**
+<any testing done>
